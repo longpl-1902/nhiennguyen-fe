@@ -1,0 +1,129 @@
+{
+   "home_page" : {
+    "title1": "Tinh Wellness - Aqua Yoga & Meditation Center ",
+    "slogan": "Chạm đến sự tĩnh tại, khơi nguồn năng lượng mới",
+    "slogan_description": "Trải nghiệm Aqua Yoga & Water Meditation đầu tiên tại Đà Nẵng – nơi cơ thể nhẹ đi, tâm trí lắng lại và từng nhịp thở trở nên sâu hơn tại Tĩnh.",
+    "button1":"Đặt lịch trải nghiệm ngay",
+    "title2": "Chậm lại. Thở sâu. Để nước chữa lành bạn.",
+    "title3": "NHỮNG CẢM NHẬN THẬT TỪ NHỮNG NGƯỜI ĐẦU TIÊN TRẢI NGHIỆM",
+    "title4": "Trải nghiệm Aqua Yoga đầu tiên tại Đà Nẵng",
+    "discount" : "Ưu Đãi 20% cho 50 khách đầu tiên",
+    "company_name": "TĨNH Wellness – Aqua Yoga & Water Meditation"
+   },
+  "services": {
+    "benefit_title": "Đến Tĩnh, bạn sẽ nhận được gì?",
+    "slides": [
+      {
+        "title": "Xin chào, chúng tôi là TĨNH Wellness",
+        "lines": [
+          "Nơi sự tĩnh tại gặp dòng nước.",
+          "TĨNH Wellness là trung tâm đầu tiên tại Đà Nẵng kết hợp Aqua Yoga – Thiền Dưới Nước – Xông Hơi Thảo Mộc trong một không gian trị liệu toàn diện.",
+          "Chúng tôi tạo ra một môi trường chữa lành trong nước, nơi cơ thể được thả lỏng, hơi thở trở nên sâu hơn và tâm trí nhẹ nhàng trở về trạng thái bình yên."
+        ]
+      },
+      {
+        "title": "SỨ MỆNH CỦA TĨNH",
+        "lines": [
+          "Đưa con người trở về với chính mình – thông qua nước, hơi thở và sự chậm rãi.",
+          "Tại TĨNH, chúng tôi tin rằng chữa lành chỉ có thể bắt đầu khi bạn dừng lại.",
+          "Sứ mệnh của chúng tôi là giúp mỗi người chậm lại, lắng nghe cơ thể, thả bỏ căng thẳng và đánh thức nguồn năng lượng bình yên bên trong."
+        ]
+      },
+      {
+        "title": "ĐIỀU TẠO NÊN SỰ KHÁC BIỆT?",
+        "lines": [
+          "Hồ nước ấm trị liệu chuẩn quốc tế không clo.",
+          "Nhiệt độ 32–34°C, pha muối biển nhẹ, kết hợp hệ thống âm thanh dưới nước giúp bạn thả lỏng sâu toàn thân.",
+          "Aqua Yoga & Thiền Dưới Nước tại TĨNH tận dụng những đặc tính chữa lành tự nhiên của nước để giúp bạn khôi phục sự cân bằng – cả về thể chất lẫn tinh thần.",
+          "TĨNH tập trung vào khôi phục, thả lỏng và kết nối tâm – thân, thay vì cường độ hay kỹ thuật nặng.",
+          "Toàn bộ đội ngũ được đào tạo chuyên sâu về aqua therapy, thiền, breathwork và phục hồi cơ thể."
+        ]
+      },
+
+      {
+        "title": "Những dịch vụ cốt lõi",
+        "lines": [
+          "Aqua Yoga",
+          "Thiền Dưới Nước",
+          "Xông Hơi Thảo Mộc",
+          "Breathwork & Mindfulness",
+          "Yoga & Mobility",
+          "Trà thảo mộc thư giãn"
+        ]
+      }
+    ],
+
+    "title5": "HÀNH TRÌNH CỦA TĨNH – “Từ những bộn bề đến sự bình yên”",
+    "description5": "Câu chuyện của TĨNH bắt đầu từ một câu hỏi rất giản dị: “Làm sao để việc chữa lành trở nên nhẹ nhàng và an toàn—như khi ta được nước ôm lấy?” Chúng tôi nhận ra nước có khả năng làm dịu thần kinh, mềm những căng cứng và mở ra không gian cho cảm xúc được lắng lại. Từ đó, TĨNH được tạo nên như một nơi trú ẩn cho những tâm trí bận rộn và đôi vai mỏi mệt—không gian wellness tiên phong mô hình Aqua Yoga tại Đà Nẵng, nơi mỗi người tìm lại sự Calm – Balance – Heal theo cách nhẹ nhàng nhất.",
+
+    "title6": "Bạn đang cần điều gì cho cơ thể?",
+    "questions": [
+      "Bạn có cảm thấy đau mỏi vai gáy, cổ, lưng không?",
+      "Bạn đang trải qua căng thẳng cảm xúc hoặc mệt mỏi tâm trí?",
+      "Bạn có khó ngủ hoặc ngủ không sâu?",
+      "Bạn cần một hình thức vận động nhẹ nhàng nhưng vẫn giúp giải phóng căng thẳng?"
+    ],
+    "description6": "Với TĨNH, wellness không phải là một con số—mà là cảm giác bình yên bên trong bạn."
+  },
+  "schedule_page": {
+    "benefit_title": "Lợi ích khi đặt lịch tại TĨNH Wellness",
+
+    "benefits": [
+      "Trải nghiệm Aqua Yoga & Thiền Dưới Nước trong hồ nước ấm trị liệu.",
+      "Lớp nhỏ, 20 người, đảm bảo sự riêng tư và được hướng dẫn kỹ.",
+      "Giảng viên chuyên môn về aqua therapy – mindfulness – breathwork.",
+      "Không gian yên tĩnh, giúp giải tỏa căng thẳng & phục hồi năng lượng.",
+      "Nghi thức xông hơi & trà thảo mộc sau buổi trải nghiệm.",
+      "Ưu đãi cho khách đặt trước & đăng ký theo gói."
+    ],
+
+    "cta_button": "Đặt lịch trải nghiệm ngay hôm nay",
+    "form_title": "Đăng ký trải nghiệm Aqua Yoga & Thiền Dưới Nước",
+    "form_name_placeholder": "Họ và tên",
+    "form_email_placeholder": "Email",
+    "form_phone_placeholder": "Số điện thoại",
+    "form_preferred_address_placeholder": "Địa chỉ",
+    "form_message" : "lời nhắn"
+  },
+  "about_page": {
+    "title1": "Xin chào, chúng tôi là TĨNH Wellness",
+    "description1_line1": "Nơi sự tĩnh tại gặp dòng nước.",
+    "description1_line2": "TĨNH Wellness là trung tâm đầu tiên tại Đà Nẵng kết hợp Aqua Yoga – Thiền Dưới Nước – Xông Hơi Thảo Mộc trong một không gian trị liệu toàn diện.",
+    "description1_line3": "Chúng tôi tạo ra một môi trường chữa lành trong nước, nơi cơ thể được thả lỏng, hơi thở trở nên sâu hơn và tâm trí nhẹ nhàng trở về trạng thái bình yên.",
+
+    "title2": "SỨ MỆNH CỦA TĨNH",
+    "description2_line1": "Đưa con người trở về với chính mình – thông qua nước, hơi thở và sự chậm rãi.",
+    "description2_line2": "TẠI TĨNH, chúng tôi tin rằng chữa lành chỉ có thể bắt đầu khi bạn dừng lại.",
+    "description2_line3": "Sứ mệnh của chúng tôi là giúp mỗi người chậm lại, lắng nghe cơ thể, thả bỏ căng thẳng và đánh thức nguồn năng lượng bình yên bên trong.",
+
+    "title3": "ĐIỀU TẠO NÊN SỰ KHÁC BIỆT",
+    "difference_1_title": "1. Hồ nước ấm trị liệu chuẩn quốc tế không clo",
+    "difference_1_desc": "Nhiệt độ 32–34°C, pha muối biển nhẹ, kết hợp hệ thống âm thanh dưới nước giúp bạn thả lỏng sâu toàn thân.",
+    "difference_2_title": "2. Trải nghiệm chữa lành – không phải “bài tập”",
+    "difference_2_desc": "TĨNH tập trung vào khôi phục, thả lỏng và kết nối tâm – thân, thay vì cường độ hay kỹ thuật nặng.",
+    "difference_3_title": "3. Giảng viên chuyên môn về trị liệu nước & mindfulness",
+    "difference_3_desc": "Toàn bộ đội ngũ được đào tạo chuyên sâu về aqua therapy, thiền, breathwork và phục hồi cơ thể.",
+
+    "title4": "Những dịch vụ cốt lõi",
+    "services": [
+      "Aqua Yoga",
+      "Thiền Dưới Nước",
+      "Xông Hơi Thảo Mộc",
+      "Breathwork & Mindfulness",
+      "Yoga & Mobility",
+      "Trà thảo mộc thư giãn"
+    ],
+
+    "title5": "HÀNH TRÌNH CỦA TĨNH – “Từ những bộn bề đến sự bình yên”",
+    "description5": "Câu chuyện của TĨNH bắt đầu từ một câu hỏi rất giản dị: “Làm sao để việc chữa lành trở nên nhẹ nhàng và an toàn—như khi ta được nước ôm lấy?” Chúng tôi nhận ra nước có khả năng làm dịu thần kinh, mềm những căng cứng và mở ra không gian cho cảm xúc được lắng lại. Từ đó, TĨNH được tạo nên như một nơi trú ẩn cho những tâm trí bận rộn và đôi vai mỏi mệt—không gian wellness tiên phong mô hình Aqua Yoga tại Đà Nẵng, nơi mỗi người tìm lại sự Calm – Balance – Heal theo cách nhẹ nhàng nhất.",
+
+    "title6": "Bạn đang cần điều gì cho cơ thể?",
+    "questions": [
+      "Bạn có cảm thấy đau mỏi vai gáy, cổ, lưng không?",
+      "Bạn đang trải qua căng thẳng cảm xúc hoặc mệt mỏi tâm trí?",
+      "Bạn có khó ngủ hoặc ngủ không sâu?",
+      "Bạn cần một hình thức vận động nhẹ nhàng nhưng vẫn giúp giải phóng căng thẳng?"
+    ],
+    "description6": "Với TĨNH, wellness không phải là một con số—mà là cảm giác bình yên bên trong bạn."
+  }
+}
