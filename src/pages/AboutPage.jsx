@@ -3,7 +3,6 @@ import HappinessGuarantee from "../component/HapinessGuarantee.jsx";
 import MissionSection from "../component/MissionSection.jsx";
 import FarmFreshQuality from "../component/FarmFreshQuality.jsx";
 import DifferenceSection from "../component/DifferenceSection.jsx";
-import WelcomeGridSection from "../component/WelcomeGridSection.jsx";
 import StorySection from "../component/StorySection.jsx";
 import ProductListSection from "../component/ProductListSection.jsx";
 
@@ -15,7 +14,6 @@ const AboutPage = () => {
       <MissionSection />
       {/* <FarmFreshQuality /> */}
       <DifferenceSection />
-      <WelcomeGridSection />
       <StorySection />
       {/* <ProductListSection /> */}
     </div>

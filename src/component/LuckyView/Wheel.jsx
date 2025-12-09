@@ -29,6 +29,7 @@ export default function LuckyWheel() {
     // quay 5 vòng + dừng đúng vào ô random
     const newRotation = 360 * 5 + (360 - randomIndex * sliceDeg);
 
+    
     setRotation(newRotation);
 
     setTimeout(() => {

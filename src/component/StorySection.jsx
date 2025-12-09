@@ -1,4 +1,5 @@
-import video2 from "../assets/images/video2.mp4";
+const video2 = "https://tinh-wellness-video.s3.ap-southeast-2.amazonaws.com/videos/video2.mp4";
+
 const StorySection = () => {
   return (
     <section className="py-16 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-10">

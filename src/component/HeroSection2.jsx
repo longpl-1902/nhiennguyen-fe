@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
-import video3 from "../assets/images/video3.mp4";
+
+const video3 = "https://tinh-wellness-video.s3.ap-southeast-2.amazonaws.com/videos/video3.mp4";
 
 const HeroSection2 = () => {
   const {t} = useTranslation();

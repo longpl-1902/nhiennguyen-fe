@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import aquaWater from "../assets/images/video2.mp4"
+
+const aquaWater = "https://tinh-wellness-video.s3.ap-southeast-2.amazonaws.com/videos/video2.mp4"
 
 const AboutCarousel = () => {
   const { t } = useTranslation();

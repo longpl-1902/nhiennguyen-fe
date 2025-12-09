@@ -1,4 +1,4 @@
-import video1 from "../assets/images/video1.mp4";
+const video1 = "https://tinh-wellness-video.s3.ap-southeast-2.amazonaws.com/videos/video1.mp4";
 
 const MissionSection = () => {
   return (
