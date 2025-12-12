@@ -46,10 +46,11 @@ export default function ScheduleTable() {
 
   // Fill grouped structure
   classes.forEach((cls) => {
-    cls.schedule.forEach((slot) => {
-      const { date, time } = slot;
+      const { date, time } = cls.schedule;
+      // Create the nested object if missing
+      if (!grouped[time]) grouped[time] = {};
+      if (!grouped[time][date]) grouped[time][date] = [];
       grouped[time][date].push(cls);
-    });
   });
 
   return (
@@ -94,15 +95,15 @@ export default function ScheduleTable() {
                         list.map((cls, index) => (
                             <div
                             key={cls.id}
-                            className={`text-center pb-2 ${
+                            className={`flex justify-between pb-2 ${
                                 index !== list.length - 1 ? "border-b border-white/20" : ""
                             }`}
                             >
                             <p className="text-[#ffef7a] font-bold text-sm">
-                                {cls.name}
+                                {cls.teacher}
                             </p>
                             <p className="text-white text-xs opacity-80">
-                                {cls.teacher}
+                                {cls.number}/{cls.slot}
                             </p>
                             </div>
                         ))

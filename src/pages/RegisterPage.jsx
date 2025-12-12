@@ -1,13 +1,35 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { data } from "react-router-dom";
 
+export const DATE_MAP = {
+  1: "Thứ 2",
+  2: "Thứ 3",
+  3: "Thứ 4",
+  4: "Thứ 5",
+  5: "Thứ 6",
+  6: "Thứ 7",
+  7: "Chủ nhật",
+};
+
+export const TIME_MAP = {
+  1: "Ca 1",
+  2: "Ca 2",
+  3: "Ca 3",
+  4: "Ca 4",
+  5: "Ca 5",
+  6: "Ca 6",
+  7: "Ca 7",
+  8: "Ca 8",
+};
+
 export default function ServicePackageCheckout() {
  const [packages, setPackages] = useState([]);
  const [loading, setLoading] = useState(true);
  const [courses, setCourses] = useState([]);
  const [course, setCourse] = useState("");
  const [courseId, setCourseId] = useState("");
- 
+ const [description, setDescription] = useState("");
+
  const API = import.meta.env.VITE_API_BASE_URL;
 
  useEffect(() => {
@@ -44,6 +66,47 @@ export default function ServicePackageCheckout() {
 
   const [selectedId, setSelectedId] = useState(null);
 
+  const [matrix, setMatrix] = useState({});
+  const [selected, setSelected] = useState([]);
+
+  const buildMatrix = (apiData) => {
+    const matrix = {};
+
+    for (let d = 1; d <= 7; d++) {
+      for (let t = 1; t <= 8; t++) {
+        matrix[`${d}-${t}`] = null;
+      }
+    }
+
+    apiData.forEach((item) => {
+      const key = `${item.schedule.date}-${item.schedule.time}`;
+      matrix[key] = item;
+    });
+
+    return matrix;
+  };
+
+  useEffect(() => {
+  if (courses.length > 0) {
+    setMatrix(buildMatrix(courses));
+  }
+  }, [courses]);
+
+  const toggleSelect = (slot) => {
+    const exists = selected.find((x) => x.id === slot.id);
+    
+    if (exists) {
+      setSelected(selected.filter((x) => x.id !== slot.id));
+    } 
+    else {
+      if (selected.length >= 3) {
+        alert("Bạn chỉ được chọn tối đa 3 ca!");
+        return;
+      }
+      setSelected([...selected, slot]);
+    }
+  };
+
   useEffect(() => {
     if (activePackages.length > 0 && !selectedId) {
       setSelectedId(activePackages[0].id);
@@ -66,43 +129,45 @@ export default function ServicePackageCheckout() {
     });
 
   const applyVoucher = async () => {
-  if (!voucher.trim()) {
-    setVoucherStatus("error");
-    setDiscountPercent(0);
-    return;
-  }
-
-  const code = voucher.trim().toUpperCase();
-
-  try {
-    setVoucherStatus(null); // reset state
-
-    const res = await fetch(`${API}api/vouchers/search?name=${code}`);
-
-    if (!res.ok) {
+    console.log(voucher);
+    if (!voucher.trim()) {
       setVoucherStatus("error");
       setDiscountPercent(0);
       return;
     }
 
-    const data = await res.json();
+    const code = voucher.trim().toUpperCase();
 
-    if (!data || !data.discount) {
+    try {
+      setVoucherStatus(null); // reset state
+
+      const res = await fetch(`${API}api/vouchers/search?name=${code}`);
+      console.log(res);
+      if (!res.ok) {
+        setVoucherStatus("error");
+        setDiscountPercent(0);
+        return;
+      }
+
+      const data = await res.json();
+
+      if (!data) {
+        setVoucherStatus("error");
+        setDiscountPercent(0);
+        return;
+      }
+
+      console.log("Voucher:", data);
+
+      setDiscountPercent(data.discount); // ✅ from API
+      setVoucherStatus("success");
+      setDescription(data.description);
+    } catch (err) {
+      console.error("Error loading voucher:", err);
       setVoucherStatus("error");
       setDiscountPercent(0);
-      return;
     }
-
-    console.log("Voucher:", data);
-
-    setDiscountPercent(data.discount); // ✅ from API
-    setVoucherStatus("success");
-  } catch (err) {
-    console.error("Error loading voucher:", err);
-    setVoucherStatus("error");
-    setDiscountPercent(0);
-  }
-};
+  };
 
 
   const validate = () => {
@@ -110,9 +175,9 @@ export default function ServicePackageCheckout() {
     if (!fullName) e.fullName = "Vui lòng nhập họ tên";
     if (!email) e.email = "Vui lòng nhập email";
     if (!phone) e.phone = "Vui lòng nhập số điện thoại";
-    // if (!branch) e.branch = "Vui lòng chọn cơ sở";
-    if (!course) e.course = "Vui lòng chọn khóa học";
+    if (selected.length == 0) e.course = "Vui lòng chọn khóa học";
 
+    console.log(e);
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -121,12 +186,9 @@ export default function ServicePackageCheckout() {
   setShowQr(false);
 
   // ✅ LẤY ID KHÓA HỌC
-  const selectedCourseId = courses.find(c => c.name === course)?.id;
+  const selectedCourseId = selected.map(item => item.id);
 
-  if (!selectedCourseId || !selectedPackage?.id) {
-    alert("Thiếu classId hoặc subscriptionId");
-    return;
-  }
+  console.log(selectedCourseId);
 
   console.log("Selected Course ID:", selectedCourseId);
   console.log("Selected Package ID:", selectedPackage.id);
@@ -135,6 +197,7 @@ export default function ServicePackageCheckout() {
     name: fullName,
     PhoneNumeber: phone,   // ✅ đúng field theo Swagger
     email: email,
+    classIds : selectedCourseId,
     address: "string",   // bạn có thể thay bằng address thật
     isActive: 0,
   };
@@ -143,7 +206,7 @@ export default function ServicePackageCheckout() {
 
   try {
     const res = await fetch(
-      `${API}api/students/${selectedCourseId}/${selectedPackage.id}`, // ✅ đúng path
+      `${API}api/students/${selectedPackage.id}`, // ✅ đúng path
       {
         method: "POST",
         headers: {
@@ -153,14 +216,13 @@ export default function ServicePackageCheckout() {
       }
     );
 
+    console.log(res.ok);
+
     if (!res.ok) {
+      console.log("run this");
       throw new Error("POST request failed");
     }
-
-    const data = await res.json();
-
     console.log("POST SUCCESS:", data);
-
     alert("✅ Cảm ơn bạn đã tham gia khóa học của chúng tôi, hệ thống đã được cập nhật.");
   } catch (err) {
     console.error("POST ERROR:", err);
@@ -281,7 +343,7 @@ export default function ServicePackageCheckout() {
 
               {voucherStatus === "success" && (
                 <div className="mt-2 text-xs px-3 py-1 rounded-full bg-[#E8F7F4] text-[#0F6F63] inline-block">
-                  ✔ Mã hợp lệ – giảm {discountPercent}%
+                  ✔ Mã hợp lệ giảm {discountPercent}% - {description}
                 </div>
               )}
               {voucherStatus === "error" && (
@@ -291,30 +353,74 @@ export default function ServicePackageCheckout() {
               )}
             </section>
 
-            {/* Course Selection */}
-            <div>
-              <label className="text-xs">Khóa học *</label>
-              <select
-                className="w-full rounded-xl border px-3 py-2 mt-1 bg-white"
-                value={course}
-                onChange={(e) => {
-                  setCourse(e.target.value);
+            <div className="w-full overflow-x-auto border rounded-2xl p-5 bg-white shadow">
+
+      {/* HEADER */}
+      <div className="grid grid-cols-8 text-center font-bold mb-2">
+        <div></div>
+        {Object.values(DATE_MAP).map((d) => (
+          <div key={d}>{d}</div>
+        ))}
+      </div>
+
+      {/* MATRIX */}
+      {Object.entries(TIME_MAP).map(([timeKey, timeLabel]) => (
+        <div key={timeKey} className="grid grid-cols-8 text-center">
+          {/* CA LABEL */}
+          <div className="font-semibold py-2">{timeLabel}</div>
+
+          {Object.keys(DATE_MAP).map((dayKey) => {
+            const slot = matrix[`${dayKey}-${timeKey}`];
+            const isFull = slot && slot.slot - slot.number <= 0;
+            const isSelected = slot && selected.some((s) => s.id === slot.id);
+
+            return (
+              <div
+                key={`${dayKey}-${timeKey}`}
+                onClick={() => {
+                  if (!slot || isFull) return;
+                  toggleSelect(slot);
                 }}
+                className={`
+                  m-1 rounded-xl border p-2 transition-all cursor-pointer text-xs
+                  ${slot ? "bg-gray-50 hover:scale-105" : "bg-gray-100"}
+                  ${isSelected ? "border-green-600 bg-green-200 scale-105" : ""}
+                  ${isFull ? "bg-red-200 border-red-500 cursor-not-allowed opacity-50" : ""}
+                `}
               >
-                <option value="">Chọn khóa học</option>
+                {slot ? (
+                  <>
+                    <div className="font-semibold">{slot.teacher}</div>
+                    <div className="text-[10px]">
+                      {DATE_MAP[slot.schedule.date]} - {TIME_MAP[slot.schedule.time]}
+                    </div>
+                    <div className="text-[10px]">
+                      Còn: {slot.slot - slot.number}
+                    </div>
+                  </>
+                ) : (
+                  <div className="opacity-30">—</div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      ))}
 
-                {courses.map((c) => (
-                  <option key={c.id} value={c.name}>
-                    {c.name}
-                  </option>
-                ))}
-              </select>
+      {/* SELECTED */}
+      <div className="mt-4 p-4 bg-gray-100 rounded-xl">
+        <h3 className="font-semibold mb-2">
+          Ca đã chọn ({selected.length}/3)
+        </h3>
 
-              {errors.course && (
-                <p className="text-xs text-red-500">{errors.course}</p>
-              )}
-            </div>
-            
+        {selected.map((s) => (
+          <div key={s.id} className="text-sm">
+            ✔ {s.teacher} – {DATE_MAP[s.schedule.date]} –{" "}
+            {TIME_MAP[s.schedule.time]} – Còn: {s.slot - s.number}
+          </div>
+        ))}
+      </div>
+    </div>
 
             {/* Personal Info */}
             <section className="rounded-2xl bg-white shadow-sm border p-5 space-y-4">
@@ -415,6 +521,10 @@ export default function ServicePackageCheckout() {
                       ? `- ${formatCurrency(discountAmount)}`
                       : "-"}
                   </span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Phần quà</span>
+                  <span>{description}</span>
                 </div>
                 <hr className="my-2" />
                 <div className="flex justify-between text-base font-semibold">

@@ -24,7 +24,7 @@ const Header = () => {
             : "hover:text-gray-600 transition"
         }
       >
-        Home
+        Trang chủ
       </NavLink>
 
       <NavLink
@@ -35,7 +35,7 @@ const Header = () => {
             : "hover:text-gray-600 transition"
         }
       >
-        About
+        Về chúng tôi
       </NavLink>
 
       <NavLink
@@ -46,7 +46,7 @@ const Header = () => {
             : "hover:text-gray-600 transition"
         }
       >
-        Class Schedules
+        Lịch học 
       </NavLink>
 
       <NavLink
@@ -57,7 +57,7 @@ const Header = () => {
             : "hover:text-gray-600 transition"
         }
       >
-        Services
+        Dịch vụ 
       </NavLink>
     </nav>
 
@@ -70,7 +70,7 @@ const Header = () => {
       {/* Right Nav */}
       <div className="hidden md:flex items-center space-x-6">
         <NavLink to="/register" className="bg-[#360185] hover:bg-gray-700 text-white font-semibold px-6 py-2 rounded-full">
-          REGISTER NOW
+          Đăng ký ngay 
         </NavLink>
         <LanguageSwitcher/>
       </div>

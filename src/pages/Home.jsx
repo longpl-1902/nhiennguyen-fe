@@ -57,7 +57,7 @@ const Home = () => {
           
           {/* Component Vòng Quay */}
           <div className="p-8 bg-white rounded-lg shadow-2xl relative">
-             <LuckyWheel />
+             <LuckyWheel/>
           </div>
         </div>
       )}
